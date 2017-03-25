@@ -5,3 +5,5 @@
     http://bbs.csdn.net/topics/391020576
 WebApi2 jsonp跨域问题：http://www.cnblogs.com/wj-Mcat/p/5095816.html
 http://www.cnblogs.com/artech/archive/2013/12/05/3460544.html
+
+<img.+"(https://.+/thumbs.+.[jpg,png])"
