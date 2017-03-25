@@ -5,12 +5,13 @@
 
 
 <div id="hsmap" style="width:335px;height:185px;background-image:url(/images/hsMap.png);background-size: 100% 100%;position:relative;cursor:pointer">
-    <div id="hsmap_guibeicun" style="width:20px;height:20px;position:absolute;top:68px;right: 168px;background-image:url(/images/level/level1.png);background-size: 100% 100%;"></div>
-    <div id="hsmap_louchong"  style="width:20px;height:20px;position:absolute;top:50px;right: 125px;background-image:url(/images/level/level2.png);background-size: 100% 100%;"></div>
-    <div id="hsmap_nanshan"  style="width:20px;height:20px;position:absolute;top:97px;right: 155px;background-image:url(/images/level/level3.png);background-size: 100% 100%;"></div>
+    <div id="hsmap_guibeicun" style="width:20px;height:20px;position:absolute;top:68px;right: 168px;background-size: 100% 100%;"></div>
+    <div id="hsmap_louchong"  style="width:20px;height:20px;position:absolute;top:50px;right: 125px;background-size: 100% 100%;"></div>
+    <div id="hsmap_nanshan"  style="width:20px;height:20px;position:absolute;top:97px;right: 155px;background-size: 100% 100%;"></div>
 </div>
 
 @section Scripts{
+    <script src="/js/jquery.jsonp.js"></script>
 <script>
     $(document).ready(function(){ 
     　　$("#hsmap").click(function(){ 　
@@ -21,23 +22,34 @@
 var hsmap={};
 hsmap.getAQIData = function()
 {
-    $.post("http://123.207.253.208:8081//Service/RealTime",function(result){
-        if(result!=null && result.length>0){
-            $.each(result,function(i,obj){
-                switch(obj.StationID){
-                    case 1:
-                        $("#hsmap_guibeicun").css("background-image","url("+hsmap.geturl+")");
-                    break;
-                    case 2:
-                        $("#hsmap_louchong").css("background-image","url("+hsmap.geturl+")");
-                    break;
-                    case 3:
-                        $("#hsmap_nanshan").css("background-image","url("+hsmap.geturl+")");
-                    break;
-                }
-            })
+    // $.getJSON("http://123.207.253.208:8081/Service/RealTime",function(result){
+    //     if(result!=null && result.length>0){
+    //         $.each(result,function(i,obj){
+    //             hsmap.geturl(obj);
+    //             switch(obj.StationID){
+    //                 case 1:
+    //                     $("#hsmap_guibeicun").css("background-image","url("+hsmap.url+")");
+    //                 break;
+    //                 case 2:
+    //                     $("#hsmap_louchong").css("background-image","url("+hsmap.url+")");
+    //                 break;
+    //                 case 3:
+    //                     $("#hsmap_nanshan").css("background-image","url("+hsmap.url+")");
+    //                 break;
+    //             }
+    //         })
+    //     }
+    // })
+
+    $.jsonp({
+        "url": "http://123.207.253.208:8081/Service/RealTime?callback=?",
+        "success": function(data) {
+            alert("success!")
+        },
+        "error": function(d,msg) {
+            alert("Could not find user "+msg);
         }
-    })
+    });
 }
 hsmap.geturl = function(m) {
                 var url = "";
@@ -64,7 +76,8 @@ hsmap.geturl = function(m) {
                         url = "/Images/level/level7.png";
                         break;
                 }
-                return url;
+                hsmap.url=url;
+                //return url;
             }
 
 </script>
