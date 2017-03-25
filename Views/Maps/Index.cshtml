@@ -22,34 +22,34 @@
 var hsmap={};
 hsmap.getAQIData = function()
 {
-    // $.getJSON("http://123.207.253.208:8081/Service/RealTime",function(result){
-    //     if(result!=null && result.length>0){
-    //         $.each(result,function(i,obj){
-    //             hsmap.geturl(obj);
-    //             switch(obj.StationID){
-    //                 case 1:
-    //                     $("#hsmap_guibeicun").css("background-image","url("+hsmap.url+")");
-    //                 break;
-    //                 case 2:
-    //                     $("#hsmap_louchong").css("background-image","url("+hsmap.url+")");
-    //                 break;
-    //                 case 3:
-    //                     $("#hsmap_nanshan").css("background-image","url("+hsmap.url+")");
-    //                 break;
-    //             }
-    //         })
-    //     }
-    // })
-
-    $.jsonp({
-        "url": "http://123.207.253.208:8081/Service/RealTime?callback=?",
-        "success": function(data) {
-            alert("success!")
-        },
-        "error": function(d,msg) {
-            alert("Could not find user "+msg);
+    $.get("http://123.207.253.208:8081/Service/RealTime",function(result){
+        if(result!=null && result.length>0){
+            $.each(result,function(i,obj){
+                hsmap.geturl(obj);
+                switch(obj.StationID){
+                    case 1:
+                        $("#hsmap_guibeicun").css("background-image","url("+hsmap.url+")");
+                    break;
+                    case 2:
+                        $("#hsmap_louchong").css("background-image","url("+hsmap.url+")");
+                    break;
+                    case 3:
+                        $("#hsmap_nanshan").css("background-image","url("+hsmap.url+")");
+                    break;
+                }
+            })
         }
-    });
+    })
+
+    // $.jsonp({
+    //     "url": "http://123.207.253.208:8081/Service/RealTime?callback=?",
+    //     "success": function(data) {
+    //         alert("success!")
+    //     },
+    //     "error": function(d,msg) {
+    //         alert("Could not find user "+msg);
+    //     }
+    // });
 }
 hsmap.geturl = function(m) {
                 var url = "";
