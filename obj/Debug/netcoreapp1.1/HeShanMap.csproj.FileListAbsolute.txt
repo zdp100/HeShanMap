@@ -1,0 +1,8 @@
+E:\GIT\HeShanMap\bin\Debug\netcoreapp1.1\HeShanMap.deps.json
+E:\GIT\HeShanMap\bin\Debug\netcoreapp1.1\HeShanMap.runtimeconfig.json
+E:\GIT\HeShanMap\bin\Debug\netcoreapp1.1\HeShanMap.runtimeconfig.dev.json
+E:\GIT\HeShanMap\bin\Debug\netcoreapp1.1\HeShanMap.dll
+E:\GIT\HeShanMap\bin\Debug\netcoreapp1.1\HeShanMap.pdb
+E:\GIT\HeShanMap\obj\Debug\netcoreapp1.1\HeShanMap.AssemblyInfo.cs
+E:\GIT\HeShanMap\obj\Debug\netcoreapp1.1\HeShanMap.dll
+E:\GIT\HeShanMap\obj\Debug\netcoreapp1.1\HeShanMap.pdb
